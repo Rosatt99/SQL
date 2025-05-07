@@ -1,6 +1,6 @@
 #1. Show customers (their full names, customer ID, and country) who are not in the US
 
-SELECT Firstname, Lastname, CustomerId, Country
+SELECT Firstname, Lastname, customerId, country
 FROM chinook.customers
 WHERE Country <> 'USA';
 
