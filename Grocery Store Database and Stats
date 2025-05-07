@@ -31,4 +31,4 @@ where section="produce";
 SELECT item, price, popularity
 FROM store
 order by popularity desc
-limit 6;
+limit 5;
