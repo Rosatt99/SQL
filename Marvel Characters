@@ -53,7 +53,7 @@ FROM marvels GROUP BY gender;
 SELECT gender, MAX(height_m)
 FROM marvels GROUP BY gender;
 
---What are those numbers per category in the data (using HAVING)?
+--What are the numbers per category in the data (using HAVING)?
 SELECT popularity, fighting_skills FROM marvels
 GROUP BY fighting_skills
 HAVING fighting_skills =4;
