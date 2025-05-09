@@ -26,64 +26,64 @@ time_signature integer NOT NULL )
 
 # Next I explored the data using the following SQL.
 
-#1 Who are the top 10 artists by popularity?
+#1. Who are the top 10 artists by popularity?
 SELECT track_name, artist_name, popularity
 FROM BIT_DB.spotifydata
 ORDER BY popularity desc
 LIMIT 10;
 
-#2 Which songs have the best danceability?
+#2. Which songs have the best danceability?
 SELECT track_name
 FROM Spotifydata
 ORDER BY danceability desc
 LIMIT 10  
 
-#3 Which artist have the highest average energy?
+#3. Which artist have the highest average energy?
 SELECT artist_name, AVG (energy) AS average_energy
 FROM Spotifydata
 GROUP BY artist_name
 ORDER BY average_energy desc
 LIMIT 10;
 
-#4 What is the average tempo for songs by Artist?
+#4. What is the average tempo for songs by Artist?
 SELECT artist_name, AVG (tempo) AS average_tempo
 FROM Spotifydata
 GROUP BY artist_name
 ORDER BY artist_name;
 
-#5 Which artist had the most live performances?
+#5. Which artist had the most live performances?
 SELECT artist_name, AVG (liveness) AS average_liveness
 FROM Spotifydata
 GROUP BY artist_name
 ORDER BY average_liveness desc
 LIMIT 5;
 
-#6 Which tracks with tempo are between the range of 120 and 140 beats per minute?
+#6. Which tracks with tempo are between the range of 120 and 140 beats per minute?
 SELECT track_name, artist_name, tempo
 FROM Spotifydata
 WHERE tempo BETWEEN 120 AND 140;
 
-#7 Which tracks have the lowest level of energy?
+#7. Which tracks have the lowest level of energy?
 SELECT track_name, artist_name, energy
 FROM Spotifydata
 ORDER BY energy ASC
 LIMIT 10;
 
-#8 What is the average popularity of the most popular songs?
+#8. What is the average popularity of the most popular songs?
 SELECT AVG (popularity) AS average_popularity
 FROM Spotifydata
 WHERE popularity = (
     SELECT MAX (popularity)
     FROM Spotifydata);
     
-#9 Which artist released the longest song
+#9. Which artist released the longest song
 SELECT artist_name
 FROM Spotifydata
 WHERE duration_ms = (
     SELECT MAX (duration_ms)
     FROM Spotifydata);
     
-#10 Which artist released the shortest song
+#10. Which artist released the shortest song
 SELECT artist_name
 FROM Spotifydata
 WHERE duration_ms = (
