@@ -18,16 +18,16 @@ INSERT INTO store VALUES (13, "poptarts", "cereal", 2.99, 75);
 INSERT INTO store VALUES (14, "ketchup", "condiments", 3.99, 85);
 INSERT INTO store VALUES (15, "ice cream", "frozen", 4.99, 95);
 
---display the database ordered by price.
+#1. Display the database ordered by price.
 SELECT * FROM store
 ORDER BY price desc;
 
---what is the avg price of items in the produce section?
+#2. what is the avg price of items in the produce section?
 SELECT AVG(price) "avg produce item price"
 FROM store
 where section="produce";
 
---what are the most 5 popular items?
+#3. what are the most 5 popular items?
 SELECT item, price, popularity
 FROM store
 order by popularity desc
