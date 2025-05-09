@@ -57,3 +57,40 @@ VALUES
     ('Company II', 'Telecommunications', 110.5, 2000, 1, 21, 12, 4.9),
     ('Company JJ', 'Manufacturing', 370.0, 3100, 1, 20, 12, 7.6),
     ('Company KK', 'Healthcare', 150.2, 3400, 0, 16, 8, 5.3);
+
+#1. Which companies have more than 1 million employees?
+
+SELECT company_name, employees
+FROM fortune_companies
+WHERE employees > 1000000;
+
+
+#2. What is the average number of paid time off days by industry?
+
+SELECT industry, AVG(paid_time_off_days) AS avg_pto
+FROM fortune_companies
+GROUP BY industry;
+
+#3. List all companies that offer healthcare benefits and maternity leave of at least 12 weeks.
+
+SELECT company_name
+FROM fortune_companies
+WHERE healthcare_benefits = 1 AND maternity_leave_weeks >= 12;
+
+#4.  Classity companies based on employee size: Small (<10k), Medium(10k-100k), Large(>100k).
+
+SELECT company_name, employees,
+  CASE
+    WHEN employees < 10000 THEN 'Small'
+    WHEN employees <= 100000 THEN 'Medium'
+    ELSE 'Large'
+  END AS size_category
+FROM fortune_companies;
+
+#5. How many companies in each industry offer healthcare benefits?
+
+SELECT industry, COUNT(*) AS companies_with_benefits
+FROM fortune_companies
+WHERE healthcare_benefits = 1
+GROUP BY industry;
+
