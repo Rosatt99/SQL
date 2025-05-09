@@ -47,17 +47,17 @@ INSERT INTO marvels VALUES(26, "Professor X", 58, "Good", "Male", 1.83, 86, "EUA
 SELECT gender, AVG(height_m)
 FROM marvels GROUP BY gender;
 
+SELECT gender, MAX(height_m)
+FROM marvels GROUP BY gender;
+
 SELECT gender, MIN(height_m)
 FROM marvels GROUP BY gender;
 
-SELECT gender, MAX(height_m)
-FROM marvels GROUP BY gender;
 
 #2. What are the numbers per category in the data (using HAVING)?
 SELECT popularity, fighting_skills FROM marvels
 GROUP BY fighting_skills
 HAVING fighting_skills =4;
-
 
 SELECT popularity, fighting_skills FROM marvels
 GROUP BY fighting_skills
@@ -66,6 +66,7 @@ HAVING fighting_skills <7;
 SELECT popularity, fighting_skills FROM marvels
 GROUP BY fighting_skills
 HAVING fighting_skills >7;
+
 
 #3.  What are different ways to group the data values that don't exist yet (using CASE)?
 SELECT name, fighting_skills, gender,
@@ -76,6 +77,7 @@ CASE
     ELSE "Beginner"
 END AS fighting_skill_category
 FROM marvels;
+
 
 #4.  What interesting ways are there to filter the data (using AND/OR)?
 SELECT name, gender, fighting_skills
