@@ -43,7 +43,7 @@ INSERT INTO marvels VALUES(24, "Venon", 78, "Neutral", "Male", 1.90, 118, "EUA",
 INSERT INTO marvels VALUES(25, "Juggernaut", 76, "Neutral", "Male", 2.87, 862, "EUA", 2, 7, 2, 7, 1, 4);
 INSERT INTO marvels VALUES(26, "Professor X", 58, "Good", "Male", 1.83, 86, "EUA", 5, 2, 2, 2, 5, 3);
 
---What is the average, max, and min values in the data?
+#1. What is the average, max, and min values in the data?
 SELECT gender, AVG(height_m)
 FROM marvels GROUP BY gender;
 
@@ -53,7 +53,7 @@ FROM marvels GROUP BY gender;
 SELECT gender, MAX(height_m)
 FROM marvels GROUP BY gender;
 
---What are the numbers per category in the data (using HAVING)?
+#2. What are the numbers per category in the data (using HAVING)?
 SELECT popularity, fighting_skills FROM marvels
 GROUP BY fighting_skills
 HAVING fighting_skills =4;
@@ -67,7 +67,7 @@ SELECT popularity, fighting_skills FROM marvels
 GROUP BY fighting_skills
 HAVING fighting_skills >7;
 
---What are different ways to group the data values that don't exist yet (using CASE)?
+#3.  What are different ways to group the data values that don't exist yet (using CASE)?
 SELECT name, fighting_skills, gender,
 CASE
     WHEN fighting_skills >= 7 THEN "Expert"
@@ -77,7 +77,7 @@ CASE
 END AS fighting_skill_category
 FROM marvels;
 
---What interesting ways are there to filter the data (using AND/OR)?
+#4.  What interesting ways are there to filter the data (using AND/OR)?
 SELECT name, gender, fighting_skills
 FROM marvels
 WHERE (fighting_skills >=7 AND gender = "MALE")
